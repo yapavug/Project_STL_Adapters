@@ -1,9 +1,12 @@
+//Адаптеры контейнеров. Берут контейнер и ограничивают его возможности
+
 #include <iostream>
 using namespace std;
 #include <vector>
 #include <list>
 #include <deque>
 #include <stack>
+#include <queue>
 
 
 int main()
@@ -46,6 +49,40 @@ int main()
 	}
 
 
+	cout << "---		QUEUE И PRIORITY QUEUE		---" << endl << endl;
+	//Базовый контейнер - по умолч - deque, можно работать с list, но нельзя с vector
+	queue<int, list<int>> q;
+	q.emplace(1);
+	q.emplace(45);
+	q.emplace(84);
+	q.emplace(129);
+
+	cout << q.back() << endl << endl;
+
+	cout << q.front() << endl << endl;
+
+	//while (!q.empty())
+	//{
+	//	cout << "size:	" << q.size() << endl;
+	//	cout << q.front() << endl;
+	//	q.pop();
+	//}
+
+	//auto a = q._Get_container();
+
+	priority_queue<int> q2;
+	// Очередь с приоритетом может использовать vector и deque, но не может list
+
+	q2.emplace(83);
+	q2.emplace(22);
+	q2.emplace(37);
+
+	while (!q2.empty())
+	{
+		cout << "size:	" << q2.size() << endl;
+		cout << q2.top() << endl;
+		q2.pop();
+	}
 
 	return 0;
 }
